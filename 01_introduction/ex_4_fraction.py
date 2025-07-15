@@ -5,8 +5,10 @@ def gcd(m, n):
     return m
 
 class Fraction:
+    # All fractions are automatically reduced to lowest terms upon creation
+    # using the greatest common divisor (GCD).
     def __init__(self, top, bottom):
-        """Initialize a fraction with numerator and denominator."""
+        """Initialize a fraction with numerator and denominator, reduced to lowest terms."""
         common = gcd(top, bottom)
         self.num = top // common
         self.den = bottom // common
