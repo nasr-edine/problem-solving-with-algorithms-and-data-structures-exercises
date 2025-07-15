@@ -58,27 +58,6 @@ class Fraction:
         """Check if self is greater than other fraction."""
         return self.num * other.den > other.num * self.den
 
-
-# x = Fraction(2, 4)
-# y = Fraction(1, 2)
-# print(x + y)
-# print(x == y)
-
-# f1 = Fraction(1, 2)
-# f2 = Fraction(3, 4)
-
-# f3 = f1 * f2
-# f3.show()
-
-# f4 = f1 - f2
-# f4.show()
-
-# f5 = f1 / f2
-# f5.show()
-
-# print(f1 < f2)
-# print(f1 > f2)
-
 if __name__ == "__main__":
     # Create some fractions
     a = Fraction(1, 2)
