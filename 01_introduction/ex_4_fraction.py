@@ -60,6 +60,18 @@ class Fraction:
         """Check if self is greater than other fraction."""
         return self.num * other.den > other.num * self.den
 
+    def __ne__(self, other):
+        """Check if two fractions are not equal."""
+        return self.num * other.den != other.num * self.den
+
+    def __le__(self, other):
+        """Check if self is less than or equal to other fraction."""
+        return self.num * other.den <= other.num * self.den
+
+    def __ge__(self, other):
+        """Check if self is greater than or equal to other fraction."""
+        return self.num * other.den >= other.num * self.den
+
     def get_num(self):
         """Return the numerator of the fraction."""
         return self.num
@@ -108,3 +120,14 @@ if __name__ == "__main__":
     g = Fraction(10, 4)
     print(f"Numerator of {g}: {g.get_num()}")      # Should print 5 (after reduction)
     print(f"Denominator of {g}: {g.get_den()}")    # Should print 2 (after reduction)
+
+    # Usage examples for testing the new relational operators
+    f1 = Fraction(3, 5)
+    f2 = Fraction(6, 10)
+    f3 = Fraction(2, 3)
+
+    print(f"{f1} != {f2} -> {f1 != f2}")   # False (3/5 == 6/10)
+    print(f"{f1} <= {f2} -> {f1 <= f2}")   # True  (3/5 == 6/10)
+    print(f"{f1} >= {f3} -> {f1 >= f3}")   # False (3/5 < 2/3)
+    print(f"{f3} >= {f1} -> {f3 >= f1}")   # True  (2/3 > 3/5)
+    print(f"{f3} <= {f1} -> {f3 <= f1}")   # False (2/3 > 3/5)
