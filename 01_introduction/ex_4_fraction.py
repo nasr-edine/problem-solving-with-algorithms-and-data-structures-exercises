@@ -58,6 +58,14 @@ class Fraction:
         """Check if self is greater than other fraction."""
         return self.num * other.den > other.num * self.den
 
+    def get_num(self):
+        """Return the numerator of the fraction."""
+        return self.num
+
+    def get_den(self):
+        """Return the denominator of the fraction."""
+        return self.den
+
 if __name__ == "__main__":
     # Create some fractions
     a = Fraction(1, 2)
@@ -90,3 +98,11 @@ if __name__ == "__main__":
     # Show method
     print("Show method output:")
     a.show()
+
+    f = Fraction(7, 3)
+    print(f"Numerator of {f}: {f.get_num()}")      # Should print 7
+    print(f"Denominator of {f}: {f.get_den()}")    # Should print 3
+
+    g = Fraction(10, 4)
+    print(f"Numerator of {g}: {g.get_num()}")      # Should print 5 (after reduction)
+    print(f"Denominator of {g}: {g.get_den()}")    # Should print 2 (after reduction)
