@@ -9,6 +9,8 @@ class Fraction:
     # using the greatest common divisor (GCD).
     def __init__(self, top, bottom):
         """Initialize a fraction with numerator and denominator, reduced to lowest terms."""
+        if not isinstance(top, int) or not isinstance(bottom, int):
+            raise ValueError("Both numerator and denominator must be integers.")
         common = gcd(top, bottom)
         self.num = top // common
         self.den = bottom // common
@@ -50,7 +52,6 @@ class Fraction:
         new_num = self.num * other.den
         new_den = self.den * other.num
         return Fraction(new_num, new_den)
-
 
     def __lt__(self, other):
         """Check if self is less than other fraction."""
@@ -131,3 +132,12 @@ if __name__ == "__main__":
     print(f"{f1} >= {f3} -> {f1 >= f3}")   # False (3/5 < 2/3)
     print(f"{f3} >= {f1} -> {f3 >= f1}")   # True  (2/3 > 3/5)
     print(f"{f3} <= {f1} -> {f3 <= f1}")   # False (2/3 > 3/5)
+
+    # Test 2: Numerator is a float (should fail)
+    try:
+        f2 = Fraction(1.5, 2)
+        print(f"Unexpectedly created: {f2}")
+    except ValueError as e:
+        print(f"Caught expected error for (1.5, 2): {e}")
+    except Exception as e:
+        print(f"Caught unexpected error type: {type(e).__name__}: {e}")
